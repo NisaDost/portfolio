@@ -30,8 +30,9 @@
     --text-dark: #f1f5f9;
     --text-medium: #cbd5e1;
     --text-light: #ffffff;
+    --bg-dark: #1e293b;
     --bg-light: #1e293b;
-    --white: #0f172a;
+    --white: #0f172a; 
     --border: #334155;
     --timeline-line: #475569;
     --timeline-dot-inactive: #475569;
@@ -714,7 +715,7 @@ section {
 
 /* Contact Section */
 #contact {
-    background-color: var(--bg-dark);
+    background-color: var(--);
     text-align: center;
 }
 
