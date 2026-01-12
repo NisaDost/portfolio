@@ -106,24 +106,12 @@ const projectsData = {
 const experienceData = {
   en: [
     {
-      company: "InfinitumIT Cyber Security & Consulting",
-      position: "Software Engineer Intern",
-      date: "Mar 2025 – May 2025",
-      location: "İstanbul, TR",
-      description: [
-        "Gained proficiency in full-stack development using Java Spring Boot for backend, React for frontend, and Python for service-level applications",
-        "Acquired experience in designing APIs and enabling communication between distributed systems",
-        "Developed competence in project architecture and system design principles",
-        "Gained foundational knowledge of cybersecurity concepts",
-      ],
-    },
-    {
       company: "Maltepe University",
-      position: "Part Time Student Assistant",
-      date: "Oct 2024 – Mar 2025",
+      position: "Voluntary Lecturer",
+      date: "Oct 2022 – Dec 2022",
       location: "İstanbul, TR",
       description: [
-        "Provided both research and teaching assistance to professors, and mentored project students throughout their development process",
+        "Delivered entry-level courses on Unity, fundamentals of C# and game development to university students",
       ],
     },
     {
@@ -137,34 +125,34 @@ const experienceData = {
     },
     {
       company: "Maltepe University",
-      position: "Voluntary Lecturer",
-      date: "Oct 2022 – Dec 2022",
+      position: "Part Time Student Assistant",
+      date: "Oct 2024 – Mar 2025",
       location: "İstanbul, TR",
       description: [
-        "Delivered entry-level courses on Unity, fundamentals of C# and game development to university students",
+        "Provided both research and teaching assistance to professors, and mentored project students throughout their development process",
+      ],
+    },
+    {
+      company: "InfinitumIT Cyber Security & Consulting",
+      position: "Software Engineer Intern",
+      date: "Mar 2025 – May 2025",
+      location: "İstanbul, TR",
+      description: [
+        "Gained proficiency in full-stack development using Java Spring Boot for backend, React for frontend, and Python for service-level applications",
+        "Acquired experience in designing APIs and enabling communication between distributed systems",
+        "Developed competence in project architecture and system design principles",
+        "Gained foundational knowledge of cybersecurity concepts",
       ],
     },
   ],
   tr: [
     {
-      company: "InfinitumIT Siber Güvenlik ve Danışmanlık",
-      position: "Yazılım Mühendisi Stajyeri",
-      date: "Mar 2025 – May 2025",
-      location: "İstanbul, TR",
-      description: [
-        "Backend için Java Spring Boot, frontend için React ve servis seviyesinde Python kullanarak full-stack geliştirme konusunda yeterlilik kazandım",
-        "API tasarımı ve dağıtık sistemler arası iletişim konusunda deneyim edindim",
-        "Proje mimarisi ve sistem tasarımı prensipleri konusunda yetkinlik geliştirdim",
-        "Siber güvenlik kavramları hakkında temel bilgi edindim",
-      ],
-    },
-    {
       company: "Maltepe Üniversitesi",
-      position: "Yarı Zamanlı Öğrenci Asistanı",
-      date: "Eki 2024 – Mar 2025",
+      position: "Gönüllü Öğretim Görevlisi",
+      date: "Eki 2022 – Ara 2022",
       location: "İstanbul, TR",
       description: [
-        "Profesörlere araştırma ve öğretim desteği sağladım, proje öğrencilerine mentorluk yaptım",
+        "Üniversite öğrencilerine Unity, C# temelleri ve oyun geliştirme konularında giriş seviyesi dersler verdim",
       ],
     },
     {
@@ -178,11 +166,23 @@ const experienceData = {
     },
     {
       company: "Maltepe Üniversitesi",
-      position: "Gönüllü Öğretim Görevlisi",
-      date: "Eki 2022 – Ara 2022",
+      position: "Yarı Zamanlı Öğrenci Asistanı",
+      date: "Eki 2024 – Mar 2025",
       location: "İstanbul, TR",
       description: [
-        "Üniversite öğrencilerine Unity, C# temelleri ve oyun geliştirme konularında giriş seviyesi dersler verdim",
+        "Profesörlere araştırma ve öğretim desteği sağladım, proje öğrencilerine mentorluk yaptım",
+      ],
+    },
+    {
+      company: "InfinitumIT Siber Güvenlik ve Danışmanlık",
+      position: "Yazılım Mühendisi Stajyeri",
+      date: "Mar 2025 – May 2025",
+      location: "İstanbul, TR",
+      description: [
+        "Backend için Java Spring Boot, frontend için React ve servis seviyesinde Python kullanarak full-stack geliştirme konusunda yeterlilik kazandım",
+        "API tasarımı ve dağıtık sistemler arası iletişim konusunda deneyim edindim",
+        "Proje mimarisi ve sistem tasarımı prensipleri konusunda yetkinlik geliştirdim",
+        "Siber güvenlik kavramları hakkında temel bilgi edindim",
       ],
     },
   ],
