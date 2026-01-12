@@ -36,7 +36,7 @@ const projectsData = {
     {
       title: "Turkish Vacuum Devices Corporate Website",
       description:
-        "This corporate website represents 'Turkish Vacuum Devices and Technologies' and aims to showcase the company’s services, technological capabilities, and industry expertise, while strengthening brand awareness and providing a professional digital identity.",
+        "This corporate website represents 'Turkish Vacuum Devices and Technologies' and aims to showcase the company's services, technological capabilities, and industry expertise, while strengthening brand awareness and providing a professional digital identity.",
       image: "assets/img/turkishvacuum.png",
       link: "https://github.com/NisaDost/Turkish-Vacuum",
       linkText: "View on GitHub",
@@ -54,7 +54,7 @@ const projectsData = {
     {
       title: "EduPilot",
       description:
-        "EduPilot’in amacı, oyunlaştırma, öğrenme analitiği, görüntü işleme ve zaman yönetimi yaklaşımlarıyla eğitimdeki verimsizlikleri gidererek öğrenci performansını ve katılımını artırmaktır.",
+        "EduPilot'in amacı, oyunlaştırma, öğrenme analitiği, görüntü işleme ve zaman yönetimi yaklaşımlarıyla eğitimdeki verimsizlikleri gidererek öğrenci performansını ve katılımını artırmaktır.",
       image: "assets/img/edupilot.png",
       link: "https://github.com/NisaDost/EduPilot",
       linkText: "GitHub'da Görüntüle",
@@ -102,8 +102,95 @@ const projectsData = {
   ],
 };
 
+// Work Experience Data - English and Turkish versions
+const experienceData = {
+  en: [
+    {
+      company: "InfinitumIT Cyber Security & Consulting",
+      position: "Software Engineer Intern",
+      date: "Mar 2025 – May 2025",
+      location: "İstanbul, TR",
+      description: [
+        "Gained proficiency in full-stack development using Java Spring Boot for backend, React for frontend, and Python for service-level applications",
+        "Acquired experience in designing APIs and enabling communication between distributed systems",
+        "Developed competence in project architecture and system design principles",
+        "Gained foundational knowledge of cybersecurity concepts",
+      ],
+    },
+    {
+      company: "Maltepe University",
+      position: "Part Time Student Assistant",
+      date: "Oct 2024 – Mar 2025",
+      location: "İstanbul, TR",
+      description: [
+        "Provided both research and teaching assistance to professors, and mentored project students throughout their development process",
+      ],
+    },
+    {
+      company: "DeepSport Athletic",
+      position: "Voluntary Internship",
+      date: "Mar 2024 – Jun 2024",
+      location: "İstanbul, TR",
+      description: [
+        "Gained entry-level knowledge in backend development, contributing to basic implementation tasks and understanding of server-side technologies",
+      ],
+    },
+    {
+      company: "Maltepe University",
+      position: "Voluntary Lecturer",
+      date: "Oct 2022 – Dec 2022",
+      location: "İstanbul, TR",
+      description: [
+        "Delivered entry-level courses on Unity, fundamentals of C# and game development to university students",
+      ],
+    },
+  ],
+  tr: [
+    {
+      company: "InfinitumIT Siber Güvenlik ve Danışmanlık",
+      position: "Yazılım Mühendisi Stajyeri",
+      date: "Mar 2025 – May 2025",
+      location: "İstanbul, TR",
+      description: [
+        "Backend için Java Spring Boot, frontend için React ve servis seviyesinde Python kullanarak full-stack geliştirme konusunda yeterlilik kazandım",
+        "API tasarımı ve dağıtık sistemler arası iletişim konusunda deneyim edindim",
+        "Proje mimarisi ve sistem tasarımı prensipleri konusunda yetkinlik geliştirdim",
+        "Siber güvenlik kavramları hakkında temel bilgi edindim",
+      ],
+    },
+    {
+      company: "Maltepe Üniversitesi",
+      position: "Yarı Zamanlı Öğrenci Asistanı",
+      date: "Eki 2024 – Mar 2025",
+      location: "İstanbul, TR",
+      description: [
+        "Profesörlere araştırma ve öğretim desteği sağladım, proje öğrencilerine mentorluk yaptım",
+      ],
+    },
+    {
+      company: "DeepSport Athletic",
+      position: "Gönüllü Stajyer",
+      date: "Mar 2024 – Haz 2024",
+      location: "İstanbul, TR",
+      description: [
+        "Backend geliştirme konusunda giriş seviyesi bilgi edindim, temel uygulama görevlerine katkıda bulundum ve sunucu tarafı teknolojilerini öğrendim",
+      ],
+    },
+    {
+      company: "Maltepe Üniversitesi",
+      position: "Gönüllü Öğretim Görevlisi",
+      date: "Eki 2022 – Ara 2022",
+      location: "İstanbul, TR",
+      description: [
+        "Üniversite öğrencilerine Unity, C# temelleri ve oyun geliştirme konularında giriş seviyesi dersler verdim",
+      ],
+    },
+  ],
+};
+
 // Current language (default: English)
 let currentLang = "en";
+let currentTheme = "light";
 
 // Function to create project cards
 function createProjectCard(project) {
@@ -126,12 +213,56 @@ function createProjectCard(project) {
     `;
 }
 
+// Function to create experience timeline
+function createExperienceTimeline(experiences) {
+  const itemsHTML = experiences
+    .map(
+      (exp, index) => `
+    <div class="timeline-item">
+      <div class="timeline-dot">${String(index + 1).padStart(2, "0")}</div>
+      <div class="timeline-content">
+        <h3 class="company-name">${exp.company}</h3>
+        <h4 class="position-name">${exp.position}</h4>
+        <p class="timeline-date">${exp.date}</p>
+        <p class="timeline-location">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          ${exp.location}
+        </p>
+        <div class="timeline-description">
+          <ul>
+            ${exp.description.map((item) => `<li>${item}</li>`).join("")}
+          </ul>
+        </div>
+      </div>
+    </div>
+  `
+    )
+    .join("");
+
+  return `
+    <div class="timeline-line"></div>
+    <div class="timeline-items">
+      ${itemsHTML}
+    </div>
+  `;
+}
+
 // Function to load projects
 function loadProjects(lang) {
   const projectsContainer = document.getElementById("projectsContainer");
   const projects = projectsData[lang];
   const projectsHTML = projects.map(createProjectCard).join("");
   projectsContainer.innerHTML = projectsHTML;
+}
+
+// Function to load experience timeline
+function loadExperience(lang) {
+  const experienceContainer = document.getElementById("experienceContainer");
+  const experiences = experienceData[lang];
+  experienceContainer.innerHTML = createExperienceTimeline(experiences);
 }
 
 // Function to update page language
@@ -155,18 +286,31 @@ function updateLanguage(lang) {
     }
   });
 
-  // Reload projects with new language
+  // Reload projects and experience with new language
   loadProjects(lang);
+  loadExperience(lang);
 
   // Save preference to localStorage
   localStorage.setItem("preferredLanguage", lang);
 }
 
-// Load projects on page load
+// Function to toggle theme
+function toggleTheme() {
+  currentTheme = currentTheme === "light" ? "dark" : "light";
+  document.documentElement.setAttribute("data-theme", currentTheme);
+  localStorage.setItem("preferredTheme", currentTheme);
+}
+
+// Load projects and experience on page load
 document.addEventListener("DOMContentLoaded", () => {
   // Check for saved language preference
   const savedLang = localStorage.getItem("preferredLanguage") || "en";
   updateLanguage(savedLang);
+
+  // Check for saved theme preference
+  const savedTheme = localStorage.getItem("preferredTheme") || "light";
+  currentTheme = savedTheme;
+  document.documentElement.setAttribute("data-theme", savedTheme);
 
   // Language toggle event listeners
   document.querySelectorAll(".lang-btn").forEach((btn) => {
@@ -175,6 +319,12 @@ document.addEventListener("DOMContentLoaded", () => {
       updateLanguage(lang);
     });
   });
+
+  // Theme toggle event listener
+  const themeToggle = document.getElementById("themeToggle");
+  if (themeToggle) {
+    themeToggle.addEventListener("click", toggleTheme);
+  }
 });
 
 // Smooth scrolling for navigation links
