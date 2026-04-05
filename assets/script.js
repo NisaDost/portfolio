@@ -138,7 +138,7 @@ const experienceData = {
     {
       company: "IQB Solutions",
       position: "Junior Full Stack Developer",
-      date: "Feb 2026 – Present",
+      date: "Jun 2025 – Present",
       location: "İstanbul, TR",
       description: [
         "Developing enterprise-grade web applications using Angular and TypeScript on the frontend and Java Spring Boot on the backend",
@@ -181,7 +181,7 @@ const experienceData = {
     {
       company: "IQB Solutions",
       position: "Junior Full Stack Developer",
-      date: "Şub 2026 – Devam Ediyor",
+      date: "Haz 2025 – Devam Ediyor",
       location: "İstanbul, TR",
       description: [
         "Angular ve TypeScript ile frontend, Java Spring Boot ile backend kullanarak kurumsal ölçekli web uygulamaları geliştirdim",
@@ -196,7 +196,51 @@ const experienceData = {
 let currentLang = "en";
 let currentTheme = "light";
 
-// Function to update CV download link based on language
+// Function to calculate and update experience duration from February 2025
+function updateExperienceDuration(lang) {
+  const start = new Date(2026, 1, 1); // February 2025
+  const now = new Date();
+
+  let totalMonths =
+    (now.getFullYear() - start.getFullYear()) * 12 +
+    (now.getMonth() - start.getMonth());
+
+  if (totalMonths < 1) totalMonths = 1;
+
+  let enText, trText;
+
+  if (totalMonths <= 11) {
+    enText = `${totalMonths} Month${totalMonths !== 1 ? "s" : ""}`;
+    trText = `${totalMonths} Ay`;
+  } else {
+    const years = Math.floor(totalMonths / 12);
+    const remainingMonths = totalMonths % 12;
+    if (remainingMonths === 0) {
+      enText = `${years} Year${years !== 1 ? "s" : ""}`;
+      trText = `${years} Y\u0131l`;
+    } else {
+      enText = `${years} Year${years !== 1 ? "s" : ""} ${remainingMonths} Month${remainingMonths !== 1 ? "s" : ""}`;
+      trText = `${years} Y\u0131l ${remainingMonths} Ay`;
+    }
+  }
+
+  // Find the experience info-item by its label
+  document.querySelectorAll(".info-item").forEach((item) => {
+    const label = item.querySelector(".info-label");
+    if (
+      label &&
+      (label.getAttribute("data-en") === "Professional Experience" ||
+        label.getAttribute("data-tr") === "Profesyonel Deneyim")
+    ) {
+      const valueSpan = item.querySelector(".info-value");
+      if (valueSpan) {
+        valueSpan.setAttribute("data-en", enText);
+        valueSpan.setAttribute("data-tr", trText);
+        valueSpan.textContent = lang === "tr" ? trText : enText;
+      }
+    }
+  });
+}
 function updateCVLink(lang) {
   const cvLink = document.querySelector(".cv-download");
   if (!cvLink) return;
@@ -309,6 +353,9 @@ function updateLanguage(lang) {
 
   // Update CV download link
   updateCVLink(lang);
+
+  // Update experience duration
+  updateExperienceDuration(lang);
 
   // Save preference to localStorage
   localStorage.setItem("preferredLanguage", lang);
