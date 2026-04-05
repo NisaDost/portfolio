@@ -106,15 +106,6 @@ const projectsData = {
 const experienceData = {
   en: [
     {
-      company: "Maltepe University",
-      position: "Voluntary Lecturer",
-      date: "Oct 2022 – Dec 2022",
-      location: "İstanbul, TR",
-      description: [
-        "Delivered entry-level courses on Unity, fundamentals of C# and game development to university students",
-      ],
-    },
-    {
       company: "DeepSport Athletic",
       position: "Voluntary Internship",
       date: "Mar 2024 – Jun 2024",
@@ -144,17 +135,19 @@ const experienceData = {
         "Gained foundational knowledge of cybersecurity concepts",
       ],
     },
-  ],
-  tr: [
     {
-      company: "Maltepe Üniversitesi",
-      position: "Gönüllü Öğretim Görevlisi",
-      date: "Eki 2022 – Ara 2022",
+      company: "IQB Solutions",
+      position: "Junior Full Stack Developer",
+      date: "Feb 2026 – Present",
       location: "İstanbul, TR",
       description: [
-        "Üniversite öğrencilerine Unity, C# temelleri ve oyun geliştirme konularında giriş seviyesi dersler verdim",
+        "Developing enterprise-grade web applications using Angular and TypeScript on the frontend and Java Spring Boot on the backend",
+        "Contributing to Big Data and IoT platform solutions serving energy distribution and digital transformation projects",
+        "Building and maintaining scalable, high-performance services integrated with large-scale data pipelines",
       ],
     },
+  ],
+  tr: [
     {
       company: "DeepSport Athletic",
       position: "Gönüllü Stajyer",
@@ -185,12 +178,36 @@ const experienceData = {
         "Siber güvenlik kavramları hakkında temel bilgi edindim",
       ],
     },
+    {
+      company: "IQB Solutions",
+      position: "Junior Full Stack Developer",
+      date: "Şub 2026 – Devam Ediyor",
+      location: "İstanbul, TR",
+      description: [
+        "Angular ve TypeScript ile frontend, Java Spring Boot ile backend kullanarak kurumsal ölçekli web uygulamaları geliştirdim",
+        "Enerji dağıtımı ve dijital dönüşüm projelerine yönelik Büyük Veri ve IoT platform çözümlerine katkıda bulundum",
+        "Büyük ölçekli veri hatlarıyla entegre, ölçeklenebilir ve yüksek performanslı servisler geliştirip bakımını üstlendim",
+      ],
+    },
   ],
 };
 
 // Current language (default: English)
 let currentLang = "en";
 let currentTheme = "light";
+
+// Function to update CV download link based on language
+function updateCVLink(lang) {
+  const cvLink = document.querySelector(".cv-download");
+  if (!cvLink) return;
+  if (lang === "tr") {
+    cvLink.href = "assets/NisaDost_CV_TR.pdf";
+    cvLink.setAttribute("download", "Nisa_Dost_CV_TR");
+  } else {
+    cvLink.href = "assets/NisaDost_CV.pdf";
+    cvLink.setAttribute("download", "Nisa_Dost_CV");
+  }
+}
 
 // Function to create project cards
 function createProjectCard(project) {
@@ -238,7 +255,7 @@ function createExperienceTimeline(experiences) {
         </div>
       </div>
     </div>
-  `
+  `,
     )
     .join("");
 
@@ -289,6 +306,9 @@ function updateLanguage(lang) {
   // Reload projects and experience with new language
   loadProjects(lang);
   loadExperience(lang);
+
+  // Update CV download link
+  updateCVLink(lang);
 
   // Save preference to localStorage
   localStorage.setItem("preferredLanguage", lang);
